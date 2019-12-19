@@ -1,0 +1,50 @@
+<div class="container">
+        <mat-tab-group>
+                <mat-tab label="My Profile">
+                        <div class="container mt-3 border rounded h-80">
+                                <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png"
+                                style="height: 125px; width: 125px" class="mt-2 ml-2">
+                                <button class="btn btn-secondary mt-3 float-right" (click)="logout()">Logout</button>
+                                <hr class="mx-3">
+                                <p class="mx-4">Name: {{my_profile.name}}</p>
+                                <p class="mx-4">Email: {{my_profile.email}}</p>
+                                <h6 class="mx-4 d-flex">Login Type: <p *ngIf="my_profile.google_id"> Google</p><p *ngIf="my_profile.password"> Basic</p></h6>
+                            
+                        </div>
+                </mat-tab>
+                <mat-tab label="Users">
+                        <div class="container mt-3 d-flex">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 border rounded">
+                                    <div class="input-group my-3">
+                                        <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1"
+                                            [(ngModel)]="search">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <mat-icon>search</mat-icon>
+                                            </span>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="my-3 border rounded overflow-y-scroll h-75">
+                                        <div *ngFor="let item of data| search: search" class="border rounded m-2" (click)="profile = item">
+                                            <p class="p-2 pointer">{{item.email}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 ml-3 border rounded">
+                                    <div class="my-3 border rounded h-80">
+                                        <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Deafult-Profile-Pitcher.png"
+                                            style="height: 125px; width: 125px" class="mt-2 ml-2">
+                                            <hr class="mx-3">
+                                            <p class="mx-4">Name: {{profile.name}}</p>
+                                            <p class="mx-4">Email: {{profile.email}}</p>
+                                            <h6 class="mx-4 d-flex">Login Type: <p *ngIf="profile.google_id"> Google</p><p *ngIf="profile.password"> Basic</p></h6>
+                                    </div>
+                                </div>
+                            </div>
+                </mat-tab>
+              </mat-tab-group>
+</div>
+
+

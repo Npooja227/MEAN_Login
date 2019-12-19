@@ -1,0 +1,28 @@
+<div class="container col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+    <form #form="ngForm" validate>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your name"
+                [(ngModel)]="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email"
+                [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password"
+                [(ngModel)]="password">
+        </div>
+        <div class="d-flex">
+            <button type="submit" class="btn btn-primary" (click)="register(form)">Register</button>
+            <div class="mx-3 mt-1 text-secondary">(or)</div>
+            <div class="float-right">
+                <button (click)="socialSignIn()" title="Google+" class="btn btn-googleplus"><i class="fa fa-google-plus fa-fw"></i>
+                    Google+</button>
+            </div>
+        </div>
+        <small class="mt-2">Already have an account? <a routerLink="/login" class="text-primary pointer">Login</a></small>
+    </form>
+</div>
